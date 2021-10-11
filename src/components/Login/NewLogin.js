@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './style.css'
 
 class NewLogin extends Component {
   constructor(){
@@ -6,12 +7,14 @@ class NewLogin extends Component {
     this.state ={
       input:{
         username:'',
-        password:''
+        password:'',
+        email:''
       },
       errors:{}
     }
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handleChange=this.handleChange.bind(this);
+    this.validate=this.validate.bind(this);
   }
   //Handle Change Function
   handleChange(e){
@@ -30,6 +33,7 @@ class NewLogin extends Component {
     let input = {};
     input["username"] = "";
     input["password"] = "";
+    input["email"] = "";
     this.setState({input:input});
 
     alert('Form is now submitted');
@@ -52,6 +56,20 @@ class NewLogin extends Component {
           errors["username"] = "Please enter valid username.";
       }
     } 
+    //Email Validation
+    if (!input["email"]){
+      isValid = false;
+      errors["email"] = "Please enter a valid email."
+    }
+    if(typeof input["email"] !== "undefined"){
+      let lastAtPos = input["email"].lastIndexOf('@');
+      let lastDotPos = input["email"].lastIndexOf('.');
+
+      if (!(lastAtPos < lastDotPos && lastAtPos > 0 && input["email"].indexOf('@@') === -1 && lastDotPos > 2 && (input["email"].length - lastDotPos) > 2)) {
+        isValid = false;
+        errors["email"] = "Email is not valid";
+      }
+    }
     //Password Validation
     if (!input["password"]) {
       isValid = false;
@@ -72,7 +90,7 @@ class NewLogin extends Component {
   
   render() {
     return (
-      <div>
+      <div >
         <h2>Sign In</h2>
         <form onSubmit={this.handleSubmit}>
         {/* Username Input Field */}
@@ -83,11 +101,26 @@ class NewLogin extends Component {
               name="username" 
               value={this.state.input.username}
               onChange={this.handleChange}
-              onBlur={this.handleSubmit}
+              onBlur={this.validate}
               placeholder="Enter username" 
               id="username" />
               <br/>
               <div>{this.state.errors.username}</div>
+              <br/>
+          </div>
+          {/* Email Input Field */}
+          <div>
+            <label htmlFor="Email">Email:</label>
+            <input 
+              type="email" 
+              name="email" 
+              value={this.state.input.email}
+              onChange={this.handleChange}
+              onBlur={this.validate}
+              placeholder="Enter your email" 
+              id="email" />
+              <br/>
+              <div>{this.state.errors.email}</div>
               <br/>
           </div>
           {/* Password Input Field */}
@@ -98,7 +131,7 @@ class NewLogin extends Component {
               name="password" 
               value={this.state.input.password}
               onChange={this.handleChange}
-              onBlur={this.handleSubmit}
+              onBlur={this.validate}
               placeholder="Enter Password" 
               id="Password" />
               <br/>

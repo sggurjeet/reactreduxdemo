@@ -10,7 +10,7 @@ import store from './redux/store';
 // import UserContainer from './components/UserContainer';
 // import AxiosTest from './components/axiosTest';
 //import Login from './components/Login/Login';
-import NewLogin from './components/NewLogin';
+import NewLogin from './components/Login/NewLogin';
 
 
 

@@ -9,7 +9,8 @@ import store from './redux/store';
 // import ItemContainer from './components/ItemContainer';
 // import UserContainer from './components/UserContainer';
 // import AxiosTest from './components/axiosTest';
-import Login from './components/Login/Login';
+//import Login from './components/Login/Login';
+import NewLogin from './components/NewLogin';
 
 
 
@@ -17,8 +18,10 @@ function App() {
   return (
     <Provider store={store}>
      <div className="App">
-     <Login />
+     <NewLogin />
+    
        {/*
+      <Login />
        <AxiosTest />
        <UserContainer />
        <HooksCakeContainer />

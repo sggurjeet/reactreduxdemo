@@ -10,7 +10,8 @@ import store from './redux/store';
 // import UserContainer from './components/UserContainer';
 // import AxiosTest from './components/axiosTest';
 //import Login from './components/Login/Login';
-import NewLogin from './components/Login/NewLogin';
+//import NewLogin from './components/Login/NewLogin';
+import LoginHooks from './components/Login/LoginHooks';
 
 
 
@@ -18,9 +19,10 @@ function App() {
   return (
     <Provider store={store}>
      <div className="App">
-     <NewLogin />
+     <LoginHooks />
     
        {/*
+       <NewLogin />
       <Login />
        <AxiosTest />
        <UserContainer />

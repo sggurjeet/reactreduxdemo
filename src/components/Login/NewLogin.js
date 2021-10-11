@@ -7,6 +7,7 @@ class NewLogin extends Component {
     this.state ={
       input:{
         username:'',
+        fullname:'',
         password:'',
         email:''
       },
@@ -32,11 +33,12 @@ class NewLogin extends Component {
   
     let input = {};
     input["username"] = "";
+    input["fullname"] = "";
     input["password"] = "";
     input["email"] = "";
     this.setState({input:input});
 
-    alert('Form is now submitted');
+    alert(`${this.state.input.username} your form is submitted`);
    }
   }
   validate(){
@@ -54,6 +56,18 @@ class NewLogin extends Component {
       if(input["username"].trim().length < 6 || !re.test(input["username"])){
           isValid = false;
           errors["username"] = "Please enter valid username.";
+      }
+    } 
+    //Fullname Validation
+    if (!input["fullname"]) {
+      isValid = false;
+      errors["fullname"] = "Please enter your Fullname.";
+    }
+    if (typeof input["fullname"] !== "undefined") {
+      const re = /^\S*$/;
+      if(input["fullname"].trim().length < 6 || !re.test(input["fullname"])){
+          isValid = false;
+          errors["fullname"] = "Please enter valid Fullname.";
       }
     } 
     //Email Validation
@@ -91,7 +105,8 @@ class NewLogin extends Component {
   render() {
     return (
       <div >
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
+        <br/>
         <form onSubmit={this.handleSubmit}>
         {/* Username Input Field */}
         <div>
@@ -106,6 +121,21 @@ class NewLogin extends Component {
               id="username" />
               <br/>
               <div>{this.state.errors.username}</div>
+              <br/>
+          </div>
+          {/* FullName Input Field */}
+          <div>
+            <label htmlFor="Fullname">Fullname:</label>
+            <input 
+              type="text" 
+              name="Fullname" 
+              value={this.state.input.fullname}
+              onChange={this.handleChange}
+              onBlur={this.validate}
+              placeholder="Enter your Fullname" 
+              id="Fullname" />
+              <br/>
+              <div>{this.state.errors.fullname}</div>
               <br/>
           </div>
           {/* Email Input Field */}

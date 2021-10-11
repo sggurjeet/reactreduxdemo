@@ -28,7 +28,6 @@ input {
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  background: linear-gradient(-45deg, #b538d1, #d672ec);
   right: 48%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);

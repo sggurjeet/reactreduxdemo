@@ -36,7 +36,7 @@ class NewLogin extends Component {
     input["email"] = "";
     this.setState({input:input});
 
-    alert('Form is now submitted');
+    alert(`${this.state.input.username} your form is submitted`);
    }
   }
   validate(){
@@ -91,7 +91,8 @@ class NewLogin extends Component {
   render() {
     return (
       <div >
-        <h2>Sign In</h2>
+        <h2>Sign Up</h2>
+        <br/>
         <form onSubmit={this.handleSubmit}>
         {/* Username Input Field */}
         <div>

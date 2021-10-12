@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../Login/style.css";
 
 const DEFAULT_DATAOBJ = {
   username: "",

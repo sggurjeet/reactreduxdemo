@@ -1,7 +1,10 @@
 // import logo from './logo.svg';
 import "./App.css";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+//import { Provider } from "react-redux";
+//import store from "./redux/store";
+// import CounterHooksOne from "./hooks/CounterHooksOne";
+// import MouseHook from "./hooks/MouseHook";
+import TickCounter from "./hooks/TickCounter";
 // import CakeContainer from './components/CakeContainer';
 // import HooksCakeContainer from './components/HooksCakeContainer';
 // import IceCreamContainer from './components/IceCreamContainer';
@@ -11,14 +14,17 @@ import store from "./redux/store";
 // import AxiosTest from './components/axiosTest';
 //import Login from './components/Login/Login';
 //import NewLogin from "./components/Login/NewLogin";
-import LoginHooks from "./components/Login/LoginHooks";
+//import LoginHooks from "./components/Login/LoginHooks";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
+    // <Provider store={store}>
+    <div className="App">
+      {/* <CounterHooksOne /> */}
+      {/* <MouseHook /> */}
+      <TickCounter />
+      {/*
         <LoginHooks />
-        {/*
        <NewLogin />
        <Login />
        <AxiosTest />
@@ -30,8 +36,8 @@ function App() {
        <ItemContainer cake />
        <ItemContainer />
        */}
-      </div>
-    </Provider>
+    </div>
+    // </Provider>
   );
 }
 
